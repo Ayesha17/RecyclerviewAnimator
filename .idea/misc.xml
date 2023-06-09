@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/RecyclerviewAnimator/app/src/main/res/drawable-v24/card_border_8.xml" value="0.1415" />
+        <entry key="..\:/AndroidStudioProjects/RecyclerviewAnimator/app/src/main/res/drawable/card_border.xml" value="0.1415" />
         <entry key="..\:/AndroidStudioProjects/RecyclerviewAnimator/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/RecyclerviewAnimator/app/src/main/res/layout/student_list_row.xml" value="0.15" />
       </map>

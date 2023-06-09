@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
@@ -45,6 +46,11 @@ class StudentAdapter (val studentDataList:List<studentData>,  val context:Contex
 
 
             parent = itemView.findViewById(R.id.parent);
+         val   cardView = itemView.findViewById<CardView>(R.id.card_view);
+            if (data.isOverlapped)
+                cardView.setBackgroundResource(R.drawable.card_border)
+            else
+                cardView.setBackgroundResource(R.drawable.card_border_8)
             name = itemView.findViewById(R.id.name);
             age = itemView.findViewById(R.id.age);
             parent.setBackgroundColor(data.color);

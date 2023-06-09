@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
                     target: RecyclerView.ViewHolder
                 ): Boolean {
                     toPosition = target.adapterPosition
+                    studentDataList.get(toPosition).isOverlapped=true
+                    studentAdapter.notifyItemChanged(toPosition)
                     return false
                 }
 
@@ -83,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         val newColr = studentDataList.get(newPos).color
         newITem.color = temp.color
         temp.color = newColr
+        studentDataList.get(toPosition).isOverlapped=false
         studentDataList.set(oldPos, newITem);
         studentDataList[newPos] = temp;
         studentAdapter.notifyItemChanged(oldPos);
