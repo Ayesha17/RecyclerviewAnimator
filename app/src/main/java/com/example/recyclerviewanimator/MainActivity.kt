@@ -2,7 +2,6 @@ package com.example.recyclerviewanimator
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -25,7 +24,14 @@ class MainActivity : AppCompatActivity() {
                     target: RecyclerView.ViewHolder
                 ): Boolean {
                     toPosition = target.adapterPosition
-                    studentDataList.get(toPosition).isOverlapped=true
+                    val isOverlapIndex = studentDataList.indexOfFirst {
+                        it.isOverlapped
+                    }
+                    if (isOverlapIndex != -1) {
+                        studentDataList.get(isOverlapIndex).isOverlapped = false
+                        studentAdapter.notifyItemChanged(isOverlapIndex)
+                    }
+                    studentDataList.get(toPosition).isOverlapped = true
                     studentAdapter.notifyItemChanged(toPosition)
                     return false
                 }
@@ -85,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         val newColr = studentDataList.get(newPos).color
         newITem.color = temp.color
         temp.color = newColr
-        studentDataList.get(toPosition).isOverlapped=false
+        studentDataList.get(toPosition).isOverlapped = false
         studentDataList.set(oldPos, newITem);
         studentDataList[newPos] = temp;
         studentAdapter.notifyItemChanged(oldPos);
