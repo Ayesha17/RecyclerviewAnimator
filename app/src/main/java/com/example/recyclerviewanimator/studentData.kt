@@ -1,3 +1,3 @@
 package com.example.recyclerviewanimator
 
-data class studentData(var name: String, var age: Int)
+data class studentData(var name: String, var age: Int, var typeView:Int, var color:Int)

@@ -24,7 +24,11 @@ class StudentAdapter (val studentDataList:List<studentData>,  val context:Contex
     }
     @Override
     override fun  onBindViewHolder(viewHolder:MyViewHolder, i:Int) {
-     viewHolder.MyViewHolder(studentDataList.get(i),i)
+     val data=   studentDataList.get(i)
+
+     viewHolder.MyViewHolder(data,i)
+
+
     }
     @Override
     override fun  getItemCount() :Int{
@@ -37,14 +41,13 @@ class StudentAdapter (val studentDataList:List<studentData>,  val context:Contex
         private var lastPosition = -1;
         lateinit var parent: LinearLayout
         fun MyViewHolder(data: studentData, position: Int) {
-            val rnd =  Random();
-            val currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+
 
 
             parent = itemView.findViewById(R.id.parent);
             name = itemView.findViewById(R.id.name);
             age = itemView.findViewById(R.id.age);
-            parent.setBackgroundColor(currentColor);
+            parent.setBackgroundColor(data.color);
             name.text = data.name;
             age.text=  data.age.toString()
             setAnimation( parent, position);
